@@ -1,0 +1,44 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 20px;
+  background: #f4f6fa;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+input, textarea, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  background: #4b7bec;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3867d6;
+}
+
+#suggestList li {
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #ddd;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>관리자 로그인</title>
+<style>
+  body { font-family: sans-serif; max-width: 340px; margin: 60px auto; }
+  input, button { width: 100%; padding: 8px; margin-top: 8px; }
+</style>
+</head>
+<body>
+  
+<h2>관리자 로그인</h2>
+
+
+<input id="id" placeholder="관리자 ID">
+<input id="pw" type="password" placeholder="비밀번호">
+<button id="loginBtn">로그인</button>
+
+
+<script>
+document.getElementById("loginBtn").onclick = async () => {
+  const id = document.getElementById("id").value.trim();
+  const pw = document.getElementById("pw").value.trim();
+
+  const r = await fetch("/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id, pw })
+  });
+
+  const body = await r.json();
+  if (!r.ok) return alert("로그인 실패!");
+
+  // ✅ 자동 저장
+  localStorage.setItem("admin", "1");
+  localStorage.setItem("adminKey", body.adminKey);
+
+  alert("로그인 성공!");
+  location.href = "/"; // 메인으로 복귀
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>학생 건의함</title>
+  <link rel="stylesheet" href="./style/style.css" />
+  <style>
+    body { font-family: system-ui, sans-serif; background:#f7f9fc; }
+    .wrap { max-width: 720px; margin: 40px auto; padding: 0 16px; }
+    h1 { font-size: 28px; margin: 0 0 16px; }
+    .card { background:#fff; border:1px solid #e8edf3; border-radius:12px; padding:16px; }
+    .row { display:flex; gap:8px; margin:8px 0; }
+    input, textarea, select { width:100%; padding:10px; border:1px solid #cfd8e3; border-radius:8px; }
+    button { padding:12px; border:0; border-radius:10px; background:#3b82f6; color:#fff; cursor:pointer; }
+    button[disabled] { opacity:.5; cursor:not-allowed; }
+    .list { margin-top:20px; display:grid; gap:10px; }
+    .item { background:#fff; border:1px solid #e8edf3; border-radius:12px; padding:12px; }
+    .title { font-weight:700; margin-bottom:6px; }
+    .meta { color:#6b7280; font-size:14px; margin-top:6px; display:flex; gap:10px; align-items:center; }
+    .meta button { padding:6px 10px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>학생 건의함</h1>
+    <button id="adminBtn" style="
+    float:right;
+    background:#d1d5db;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+  ">관리자 로그인</button>
+  <button id="logoutBtn" style="
+  float:right;
+  background:#f87171;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  margin-left:8px;
+  display:none; /* 기본은 숨김 */
+">로그아웃</button>
+
+    <div class="card">
+      <form id="suggestForm">
+        <div class="row"><input id="title" placeholder="건의 제목" required /></div>
+        <div class="row"><textarea id="content" rows="3" placeholder="건의 내용을 입력하세요" required></textarea></div>
+        <div class="row">
+          <select id="categoryId" required>
+            <option value="" selected disabled>카테고리 선택</option>
+            <option value="MEAL">급식</option>
+            <option value="FACILITY">시설</option>
+            <option value="EVENT">행사</option>
+          </select>
+        </div>
+        <div class="row"><button type="submit">건의 등록</button></div>
+      </form>
+    </div>
+
+    <h2 style="margin:18px 0 8px">건의 목록</h2>
+   
+    <div id="suggestList" class="list"></div>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
